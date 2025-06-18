@@ -1,0 +1,6 @@
+## TSMAL-Target-Shadow-Mask-Assistance-Learning-Network-for-SAR-Target-Recognition
+This is the unofficial implementation of TSMAL
+
+Paper: https://ieeexplore.ieee.org/document/10561459
+## code
+During the reproduction of the TSMAL network, we first constructed the core Target-Shadow Mask Auxiliary (TSMA) Layer. This layer segments feature channels and leverages target/shadow masks to achieve regional feature enhancement and background suppression. Subsequently, we designed the Multi-layer Feature Fusion (MCA Fusion) module, which resizes feature maps from different stages to a uniform dimension, concatenates them, and then fuses the combined features via convolutional operations. The ResNet18 backbone network was modified to accept single-channel input and was divided into four stages, with a TSMA layer inserted after each stage. In the data preprocessing phase, we implemented a mask generation algorithm based on pixel quantiles, which dynamically generates target/shadow masks through threshold segmentation and morphological operations. During the training phase, we employed an end-to-end training approach using a multi-task loss function (combining cross-entropy classification loss and background suppression loss) optimized by the SGD optimizer. Finally, model training and evaluation were completed on the MSTAR dataset.
